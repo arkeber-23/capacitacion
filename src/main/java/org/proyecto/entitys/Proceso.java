@@ -3,6 +3,8 @@ package org.proyecto.entitys;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,14 +13,17 @@ import javax.persistence.Table;
 public class Proceso {
  
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_proceso")
     private Long idProceso;
+
     
-    
+    @Column(name="descripcion")
     private String descripcion;
 
+
     public Long getIdProceso() {
-        return idProceso;
+        return this.idProceso;
     }
 
     public void setIdProceso(Long idProceso) {
@@ -26,11 +31,12 @@ public class Proceso {
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return this.descripcion;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     
 }

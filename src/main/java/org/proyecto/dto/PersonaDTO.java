@@ -1,30 +1,24 @@
-package org.proyecto.entitys;
+package org.proyecto.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="personas")
-public class Persona {
-    //asanchez@origamiec.com
-    @Id
-    @Column(name="id_persona")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PersonaDTO {
     private Long idPersona;
-    
-    
     private String identificacion;
-    
     private String nombres;
-    
     private String apellidos;
 
+
+    public PersonaDTO() {
+    }
+
+    public PersonaDTO(Long idPersona, String identificacion, String nombres, String apellidos) {
+        this.idPersona = idPersona;
+        this.identificacion = identificacion;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+    }
+
     public Long getIdPersona() {
-        return idPersona;
+        return this.idPersona;
     }
 
     public void setIdPersona(Long idPersona) {
@@ -32,7 +26,7 @@ public class Persona {
     }
 
     public String getIdentificacion() {
-        return identificacion;
+        return this.identificacion;
     }
 
     public void setIdentificacion(String identificacion) {
@@ -40,7 +34,7 @@ public class Persona {
     }
 
     public String getNombres() {
-        return nombres;
+        return this.nombres;
     }
 
     public void setNombres(String nombres) {
@@ -48,12 +42,11 @@ public class Persona {
     }
 
     public String getApellidos() {
-        return apellidos;
+        return this.apellidos;
     }
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    
-    
+
 }

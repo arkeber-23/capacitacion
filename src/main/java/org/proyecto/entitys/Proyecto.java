@@ -2,8 +2,12 @@ package org.proyecto.entitys;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +18,8 @@ import javax.persistence.Table;
 public class Proyecto {
 
     @Id
+    @Column(name = "id_proyecto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProyecto;
 
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
@@ -28,20 +34,40 @@ public class Proyecto {
     @ManyToOne(fetch = FetchType.EAGER)
     private Proceso proceso;
 
+    @Column(name = "detalle_arrastre")
     private String detalleArrastre;
+
     private String denominacion;
     private String objetivo;
     private Character estados;
+    
+    @Column(name = "costo_proyecto")
     private BigDecimal costoProyecto;
+
+    @Column(name = "descripcion_breve")
     private String descripcionBreve;
-    private Boolean tipo;
+    private String tipo;
+
+
     private Boolean recurrente;
     private Boolean arrastre;
+    
+    @Column(name = "fecha_inicio")
     private Date fechaInicio;
+
+    @Column(name = "fecha_fin")
     private Date fechaFin;
+
+    @Column(name = "fecha_creacion")
     private Date fechaCreacion;
+
+    @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
+
+    @Column(name = "usuario_creacion")
     private String usuarioCreacion;
+
+    @Column(name = "usuario_modificacion")
     private String usuarioModificacion;
 
     public Long getIdProyecto() {
@@ -124,11 +150,11 @@ public class Proyecto {
         this.descripcionBreve = descripcionBreve;
     }
 
-    public Boolean getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(Boolean tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 

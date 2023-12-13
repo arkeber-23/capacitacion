@@ -1,17 +1,19 @@
 package org.proyecto.entitys;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "areas")
-public class Area implements Serializable {
+public class Area {
 
     @Id
     @Column(name = "id_area")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idArea;
 
     private String descripcion;
